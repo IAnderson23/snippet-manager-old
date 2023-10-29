@@ -21,19 +21,19 @@ function SmartGroupList() {
       </div>
       <ul className={"directory-list"}>
         <li className={"directory-item " + activeChecker("all")}>
-          <div className={"item-header"} onClick={e => onClickHandler("all")}>
+          <div className={"item-header"} onClick={() => onClickHandler("all")}>
             {smartGroupIcon}
             <p className={"item-name"}>All Snippets</p>
           </div>
         </li>
         <li className={"directory-item " + activeChecker("uncategorized")}>
-          <div className={"item-header"} onClick={e => onClickHandler("uncategorized")}>
+          <div className={"item-header"} onClick={() => onClickHandler("uncategorized")}>
             {smartGroupIcon}
             <p className={"item-name"}>Uncategorized</p>
           </div>
         </li>
         <li className={"directory-item " + activeChecker("recent")}>
-          <div className={"item-header"} onClick={e => onClickHandler("recent")}>
+          <div className={"item-header"} onClick={() => onClickHandler("recent")}>
             {smartGroupIcon}
             <p className={"item-name"}>Recent</p>
           </div>
@@ -41,8 +41,6 @@ function SmartGroupList() {
       </ul>
     </div>
   )
-
-
 }
 
 export default SmartGroupList;
