@@ -1,6 +1,6 @@
-import {folderSchema, fragmentSchema, snippetSchema} from "../../db";
+import {folderSchema, fragmentSchema, snippetSchema} from "../../Database/database-schema";
 
-const popupConstructor = {
+export const popupConstructor = {
   default: {type: "", subType: "", target: {}},
   create: {
     folder: () => {
@@ -36,5 +36,3 @@ const popupConstructor = {
     },
   },
 }
-
-export default popupConstructor;
