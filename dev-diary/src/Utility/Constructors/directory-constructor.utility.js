@@ -1,5 +1,5 @@
 
-const directoryConstructor = {
+export const directoryConstructor = {
   default: {type: "smartGroup", target: "all"},
   folder: (target) => {
     return {type: "folder", target: target}
@@ -11,5 +11,3 @@ const directoryConstructor = {
     return {type: "smartGroup", target: target}
   }
 }
-
-export default directoryConstructor;
