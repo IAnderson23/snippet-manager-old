@@ -1,0 +1,14 @@
+
+.item-actions
+  display: flex
+  justify-content: space-around
+  margin-right: 5px
+  transition: opacity .2s ease-out
+  button > svg
+    border: 2px solid currentColor
+
+.directory-item > .item-actions
+  opacity: 0
+
+.directory-item:hover > .item-actions
+  opacity: 1

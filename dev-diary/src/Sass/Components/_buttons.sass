@@ -1,0 +1,44 @@
+
+button
+  aspect-ratio: 1 / 1
+  height: max-content
+  all: unset
+  border-radius: 5px
+  box-sizing: border-box
+  padding: 3px
+  cursor: pointer
+  transition: all .2s ease-out
+  svg
+    fill: currentColor
+    display: block
+    height: 24px
+    width: 24px
+    border-radius: 5px
+
+.directory-list-container > .list-header
+  button
+    color: black
+    background-color: #c8c8c8
+  button:hover
+    color: white
+    background-color: #4185CF
+
+.directory-item.active > button
+  color: white
+
+#snippet-selector-header
+  button
+    color: black
+  button:hover
+    color: #4185CF
+
+.popup
+  button
+    padding: 5px 10px
+    margin-top: 20px
+    margin-right: 10px
+  button.submit
+    color: white
+    background-color: #4185CF
+  button.cancel
+    background-color: #c8c8c8

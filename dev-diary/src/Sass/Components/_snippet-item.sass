@@ -1,0 +1,25 @@
+.snippet-item
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 80px
+  box-sizing: border-box
+  border-bottom: 1px solid #dcdcdc
+  .item-header
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 60px
+    box-sizing: border-box
+    border-radius: 5px
+    padding: 5px 10px
+    transition: all .2s ease-out
+
+.snippet-item:hover > .item-header
+  background-color: #dcdcdc
+
+.snippet-item.active
+  color: white
+  .item-header
+    background-color: #4185CF
+
