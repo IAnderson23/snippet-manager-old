@@ -1,11 +1,12 @@
 import {atom} from "jotai";
 
 import {snippetIDAtom} from "./snippet-id.atom";
-import {snippetListAtom} from "./snippet-list.atom";
+import {allSnippetsAtom} from "./all-snippets.atom";
+import {snippetSchema} from "../../Database/database-schema";
 
 export const snippetAtom = atom(get => {
-  let allSnippets = get(snippetListAtom);
+  let allSnippets = get(allSnippetsAtom);
   let snippetID = get(snippetIDAtom);
 
-  return snippetID ? allSnippets.find(snippet => snippet.id === snippetID) : {};
+  return snippetID !== 0 ? allSnippets.find(snippet => snippet.id === snippetID) : snippetSchema;
 })
