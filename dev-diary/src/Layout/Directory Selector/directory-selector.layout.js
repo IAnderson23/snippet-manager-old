@@ -1,6 +1,6 @@
-import SmartGroupList from "./Components/smart-group-list.component";
+import SmartGroupList from "./Components/Smart Group/smart-group-list.component";
 import FolderList from "./Components/Folder/folder-list.component";
-import TagDirectoryList from "./Components/tag-directory-list.component";
+import TagDirectoryList from "./Components/Tag/directory-tag-list.component";
 
 
 function DirectorySelector() {
