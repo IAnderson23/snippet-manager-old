@@ -1,30 +1,34 @@
 import {db} from "../datebase-init";
 
-export async function createFragment(fragment) {
-  try {
-    const id = await db.fragments.add(fragment);
+export function createFragment(fragment) {
+  db.fragments.add(fragment).then(success).catch(error)
+
+  function success(id) {
     console.log(`Fragment ${id} Was Created`)
-  } catch (error) {
-    console.log(`Error Creating Fragment: ${error}`)
+  }
+
+  function error(e) {
+    console.log(`Error Creating Fragment: ${e}`)
   }
 }
 
-export async function updateFragment(fragmentID, updatedData) {
-  try {
-    await db.fragments.update(fragmentID, updatedData);
-    console.log(`Fragment ${fragmentID} Was Updated`)
-  } catch (error) {
-    console.log(`Error Updating Fragment ${fragmentID}: ${error}`)
-  }
+export function updateFragment(fragmentID, updatedData) {
+  db.fragments.update(fragmentID, updatedData).then(updated => {
+    if (updated)
+      console.log(`Fragment ${fragmentID} Was Updated`)
+    else
+      console.log(`Error: No Fragment With A ID Of ${fragmentID}`)
+  })
 }
 
-export async function deleteFragment(fragmentID) {
-  try {
-    await db.fragments.delete(fragmentID);
-    console.log(`Fragment ${fragmentID} Was Deleted`)
-  } catch (error) {
-    console.log(`Error Deleting Fragment ${fragmentID}: ${error}`)
+export function deleteFragment(fragmentID) {
+  db.fragments.delete(fragmentID).then(success).catch(error);
+
+  function success(id) {
+    console.log(`Fragment ${id} Was Deleted`)
+  }
+
+  function error() {
+    console.log(`Error: Invalid ID Given`)
   }
 }
-
-
