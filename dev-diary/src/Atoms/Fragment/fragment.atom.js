@@ -1,11 +1,12 @@
 import {atom} from "jotai";
 
 import {fragmentIdAtom} from "./fragment-id.atom";
-import {fragmentListAtom} from "./fragment-list.atom";
+import {allFragmentsAtom} from "./all-fragments.atom";
+import {fragmentSchema} from "../../Database/database-schema";
 
 export const fragmentAtom = atom(get => {
-  let allFragments = get(fragmentListAtom);
+  let allFragments = get(allFragmentsAtom);
   let fragmentID = get(fragmentIdAtom);
 
-  return fragmentID ? allFragments.find(fragment => fragment.id === fragmentID) : {};
+  return fragmentID ? allFragments.find(fragment => fragment.id === fragmentID) : fragmentSchema;
 })
