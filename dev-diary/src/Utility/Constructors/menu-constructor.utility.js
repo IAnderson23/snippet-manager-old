@@ -1,6 +1,6 @@
 import {folderSchema, fragmentSchema, snippetSchema} from "../../Database/database-schema";
 
-export const popupConstructor = {
+export const menuConstructor = {
   default: {type: "", subType: "", target: {}},
   create: {
     folder: () => {
