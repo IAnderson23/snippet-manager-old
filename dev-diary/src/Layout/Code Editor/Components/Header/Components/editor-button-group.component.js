@@ -1,8 +1,8 @@
-import {useAtomValue, useSetAtom} from "jotai";
 import {Icon} from '@mdi/react'
 import Tippy from "@tippyjs/react"
 import 'tippy.js/themes/light-border.css';
 import { mdiDotsHorizontal } from '@mdi/js';
+import {useAtomValue, useSetAtom} from "jotai";
 
 
 import {menuConstructor} from "../../../../../Utility/Constructors/menu-constructor.utility";
@@ -15,8 +15,7 @@ function EditorButtonGroup() {
   const snippet = useAtomValue(snippetAtom);
   const fragment = useAtomValue(fragmentAtom);
 
-  const tippyContent = 
-  <>
+  const tippyContent = <>
     <button onClick={() => setMenu(menuConstructor.edit.snippet(snippet))}>Edit Snippet</button>
     <button onClick={() => setMenu(menuConstructor.delete.snippet(snippet))}>Delete Snippet</button>
     <button onClick={() => setMenu(menuConstructor.create.fragment())}>Add Fragment</button>
@@ -27,7 +26,7 @@ function EditorButtonGroup() {
   return (
     <div id={"editor-buttons"}>
       <Tippy content={tippyContent} interactive={true} trigger={"click"} theme={"light-border"}>
-        <Icon path={mdiDotsHorizontal} size={1} />  
+        <Icon path={mdiDotsHorizontal} size={1.5} />  
       </Tippy>
     </div>
   )
