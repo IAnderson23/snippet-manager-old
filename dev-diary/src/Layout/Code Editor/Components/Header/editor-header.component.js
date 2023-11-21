@@ -11,8 +11,10 @@ function EditorHeader() {
     <div id={"editor-header"}>
       <h2>{snippet.name}</h2>
       <EditorButtonGroup />
-      <SnippetTags />
-      <AddTagItem />
+      <div id={"snippet-tags-container"}>
+        <SnippetTags />
+        <AddTagItem />
+      </div>
     </div>
   )
 }
