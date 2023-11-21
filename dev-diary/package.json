@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.1",
+    "@mdi/js": "^7.3.67",
+    "@mdi/react": "^1.6.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tippyjs/react": "^4.2.6",
     "@uiw/react-codemirror": "^4.21.20",
     "dexie": "^3.2.4",
     "dexie-react-hooks": "^1.1.6",
