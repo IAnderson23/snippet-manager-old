@@ -1,4 +1,9 @@
 import {useAtomValue, useSetAtom} from "jotai";
+import {Icon} from '@mdi/react'
+import Tippy from "@tippyjs/react"
+import 'tippy.js/themes/light-border.css';
+import { mdiDotsHorizontal } from '@mdi/js';
+
 
 import {menuConstructor} from "../../../../../Utility/Constructors/menu-constructor.utility";
 import {fragmentAtom} from "../../../../../Atoms/Fragment/fragment.atom";
@@ -10,13 +15,20 @@ function EditorButtonGroup() {
   const snippet = useAtomValue(snippetAtom);
   const fragment = useAtomValue(fragmentAtom);
 
+  const tippyContent = 
+  <>
+    <button onClick={() => setMenu(menuConstructor.edit.snippet(snippet))}>Edit Snippet</button>
+    <button onClick={() => setMenu(menuConstructor.delete.snippet(snippet))}>Delete Snippet</button>
+    <button onClick={() => setMenu(menuConstructor.create.fragment())}>Add Fragment</button>
+    <button onClick={() => setMenu(menuConstructor.edit.fragment(fragment))}>Edit Fragment</button>
+    <button onClick={() => setMenu(menuConstructor.delete.fragment(fragment))}>Delete Fragment</button>
+  </>
+
   return (
     <div id={"editor-buttons"}>
-      <button onClick={() => setMenu(menuConstructor.edit.snippet(snippet))}>Edit Snippet</button>
-      <button onClick={() => setMenu(menuConstructor.delete.snippet(snippet))}>Delete Snippet</button>
-      <button onClick={() => setMenu(menuConstructor.create.fragment())}>Add Fragment</button>
-      <button onClick={() => setMenu(menuConstructor.edit.fragment(fragment))}>Edit Fragment</button>
-      <button onClick={() => setMenu(menuConstructor.delete.fragment(fragment))}>Delete Fragment</button>
+      <Tippy content={tippyContent} interactive={true} trigger={"click"} theme={"light-border"}>
+        <Icon path={mdiDotsHorizontal} size={1} />  
+      </Tippy>
     </div>
   )
 }
