@@ -20,8 +20,8 @@ function AddTagItem() {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <input required={true} name={"tag"} type={"text"} value={newTag} onChange={changeHandler} onBlur={() => setNewTag("")} />
+    <form onSubmit={submitHandler} id={"add-tag"}>
+      <input required={true} name={"tag"} type={"text"} placeholder={"Add Tag..."} value={newTag} onChange={changeHandler} onBlur={() => setNewTag("")} />
     </form>
   )
 }
