@@ -9,7 +9,7 @@ function SnippetTags() {
     <div id={"tag-list-container"}>
       {isEmpty(snippet.tags) ? null :
         <ul id={"tag-list"}>
-          {snippet.tags.map((tag, i) => <li key={i}>{tag}</li>)}
+          {snippet.tags.map((tag, i) => <li className="tag-item" key={i}>{tag}</li>)}
         </ul>
       }
     </div>
