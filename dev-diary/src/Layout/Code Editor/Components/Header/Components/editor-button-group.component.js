@@ -15,7 +15,7 @@ function EditorButtonGroup() {
   const snippet = useAtomValue(snippetAtom);
   const fragment = useAtomValue(fragmentAtom);
 
-  const tippyContent = <>
+  const content = <>
     <button onClick={() => setMenu(menuConstructor.edit.snippet(snippet))}>Edit Snippet</button>
     <button onClick={() => setMenu(menuConstructor.delete.snippet(snippet))}>Delete Snippet</button>
     <button onClick={() => setMenu(menuConstructor.create.fragment())}>Add Fragment</button>
@@ -25,7 +25,7 @@ function EditorButtonGroup() {
 
   return (
     <div id={"editor-buttons"}>
-      <Tippy content={tippyContent} interactive={true} trigger={"click"} theme={"light-border"}>
+      <Tippy content={content} interactive={true} trigger={"click"} theme={"light-border"}>
         <Icon path={mdiDotsHorizontal} size={1.5} />  
       </Tippy>
     </div>
