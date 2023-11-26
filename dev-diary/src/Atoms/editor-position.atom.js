@@ -1,3 +1,3 @@
 import {atom} from "jotai";
 
-export const editorPositionAtom = atom({line: 0, column: 0});
+export const editorPositionAtom = atom({line: 1, column: 1});
