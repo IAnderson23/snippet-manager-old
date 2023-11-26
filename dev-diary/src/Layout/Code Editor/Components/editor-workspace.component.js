@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import {useAtomValue, useSetAtom} from "jotai";
 import {javascript} from "@codemirror/lang-javascript";
+import {oneDark} from "@codemirror/theme-one-dark"
 
 import {editorPositionAtom} from "../../../Atoms/editor-position.atom";
 import {snippetIDAtom} from "../../../Atoms/Snippet/snippet-id.atom";
@@ -48,16 +49,17 @@ function EditorWorkspace() {
   function updateHandler(viewUpdate) {
     let offset = viewUpdate.view.state.selection.main.head;
     let line = viewUpdate.state.doc.lineAt(offset);
-    let position = {line: line.number, column: offset - line.from};
+    let position = {line: line.number, column: offset - line.from + 1};
     setEditorPosition(position);
   }
 
   return (!isEmpty(workspaceData) &&
     <div id={"code-mirror"}>
       <CodeMirror value={workspaceData?.code}
+                  basicSetup={{foldGutter: false, highlightActiveLineGutter: false, autocompletion: false}}
                   className={"cm-container"}
                   height={"100%"}
-                  extensions={[javascript({jsx: true})]}
+                  extensions={[javascript({jsx: true}), oneDark]}
                   onChange={changeHandler}
                   onUpdate={updateHandler}/>
     </div>
