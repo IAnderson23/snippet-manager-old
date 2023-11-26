@@ -1,4 +1,6 @@
+import Icon from '@mdi/react';
 import {startCase} from "lodash";
+import { mdiMagnify } from '@mdi/js';
 import {useEffect, useState} from "react";
 import {useAtomValue, useSetAtom} from "jotai";
 
@@ -23,7 +25,10 @@ function SnippetSearchBar() {
   }, [directory])
 
   return (
-    <input id={"snippet-search"} placeholder={"Search..."} value={search} onChange={changeHandler} style={{textTransform: "capitalize"}} />
+    <div id={"snippet-search"}>
+      <Icon path={mdiMagnify} size={1} />
+      <input placeholder={"Search..."} value={search} onChange={changeHandler} style={{textTransform: "capitalize"}} />
+    </div>
   )
 }
 
