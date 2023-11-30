@@ -1,9 +1,9 @@
 import {useAtom} from "jotai";
-import {sortConfigAtom} from "../../../Atoms/sort-config.atom";
 import Icon from '@mdi/react';
-import { mdiSortAscending } from '@mdi/js';
-import { mdiSortDescending } from '@mdi/js';
-import { mdiChevronDown } from '@mdi/js';
+import { mdiSortAscending, mdiSortDescending, mdiChevronDown} from '@mdi/js';
+
+import {sortConfigAtom} from "../../../Atoms/sort-config.atom";
+
 
 function SnippetSortControls() {
   const [{sortBy, isAscending}, setSortConfig] = useAtom(sortConfigAtom);
