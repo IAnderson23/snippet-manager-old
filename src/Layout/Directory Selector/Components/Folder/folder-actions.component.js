@@ -1,16 +1,16 @@
-import {useSetAtom} from "jotai";
-import {menuAtom} from "../../../../Atoms/menu-atom";
-import {menuConstructor} from "../../../../Utility/Constructors/menu-constructor.utility";
-import {editIcon, trashIcon} from "../../../../Assets/svg-icons.asset";
+import {mdiDotsHorizontal, mdiMenuUp} from "@mdi/js";
+import {Icon} from "@mdi/react";
+import {Menu, MenuItem} from "../../../../Components/dropdown-menu.component";
 
+//TODO: Come Back
 function FolderActions({menuTarget}) {
-  const setMenu = useSetAtom(menuAtom);
+  const label = <Icon className={"actions-icon"} path={mdiDotsHorizontal} size={1.5} />
 
   return (
-    <div className={"item-actions"}>
-      <button onClick={() => setMenu(menuConstructor.edit.folder(menuTarget))}>{editIcon}</button>
-      <button onClick={() => setMenu(menuConstructor.delete.folder(menuTarget))}>{trashIcon}</button>
-    </div>
+    <Menu label={label}>
+      <MenuItem label={"Rename"}/>
+      <MenuItem label={"Delete"}/>
+    </Menu>
   )
 }
 
