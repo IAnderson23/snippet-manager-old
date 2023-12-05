@@ -1,16 +1,17 @@
 import SnippetItem from "./snippet-item.component";
-import useFilteredSnippets from "../../../Custom Hooks/use-filtered-snippets.hook";
+import useSortedSnippets from "../../../Custom Hooks/use-sorted-snippets.hook";
 
-function FilteredSnippetList() {
-  const filteredList = useFilteredSnippets();
+
+function SnippetList() {
+  const snippets = useSortedSnippets();
 
   return (
     <ul id={"snippet-list"}>
-      {filteredList.map((snippet, i) => {
+      {snippets.map((snippet, i) => {
         return <SnippetItem snippet={snippet} key={i} />
       })}
     </ul>
   )
 }
 
-export default FilteredSnippetList;
+export default SnippetList;
