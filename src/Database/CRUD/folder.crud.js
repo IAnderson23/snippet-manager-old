@@ -1,31 +1,34 @@
 import {db} from "../datebase-init";
 
-export async function createFolder(folderData) {
-  try {
-    const id = await db.folders.add(folderData)
+export function createFolder(folderData) {
+  db.folders.add(folderData).then(success).catch(error)
+
+  function success(id) {
     console.log(`Folder ${id} Was Created`)
-  } catch (error) {
-    console.log(`Error Creating Folder: ${error}`)
+  }
+
+  function error(e) {
+    console.log(`Error Creating Folder: ${e}`)
   }
 }
 
-export async function updateFolder(folderID, updatedData) {
-  try {
-    await db.folders.update(folderID, updatedData)
-    console.log(`Folder ${folderID} Was Updated`)
-  } catch (error) {
-    console.log(`Error Updating Folder: ${error}`)
-  }
+export function updateFolder(folderID, updatedData) {
+  db.folders.update(folderID, updatedData).then(updated => {
+    if (updated)
+      console.log(`Folder ${folderID} Was Updated`)
+    else
+      console.log(`Error: No Folder With A ID Of ${folderID}`)
+  })
 }
 
-export async function deleteFolder(folderID) {
-  try {
-    await db.folders.delete(folderID);
-    console.log(`Folder ${folderID} Was Deleted`)
-  } catch (error) {
-    console.log(`Error Deleting Folder ${folderID}: ${error}`)
-  } finally {
-    db.snippets.where("folderID").equals(folderID).modify({folderID: 0});
+export function deleteFolder(folderID) {
+  db.folders.delete(folderID).then(success).catch(error);
+
+  function success(id) {
+    console.log(`Folder ${id} Was Deleted`)
+  }
+
+  function error() {
+    console.log(`Error: Invalid ID Given`)
   }
 }
-
