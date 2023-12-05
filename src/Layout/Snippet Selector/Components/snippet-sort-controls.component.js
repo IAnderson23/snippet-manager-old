@@ -12,12 +12,17 @@ function SnippetSortControls() {
     setSortConfig({sortBy, isAscending: !isAscending});
   }
 
+  function onChangeHandler(e) {
+    let value = e.target.value;
+    setSortConfig({sortBy: value, isAscending})
+  }
+
   return (
     <div id={"snippet-control"}>
       <button onClick={onClickHandler}><Icon path={isAscending ? mdiSortAscending : mdiSortDescending} size={1}/></button>
       <div id={"sort-select-container"}>
-        <select defaultValue={"recent"}>
-          <option value={"recent"}>Last Viewed</option>
+        <select defaultValue={"lastViewed"} onChange={onChangeHandler}>
+          <option value={"lastViewed"}>Last Viewed</option>
           <option value={"name"}>Name</option>
         </select>
         <Icon path={mdiChevronDown} size={1} />
