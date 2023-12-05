@@ -5,13 +5,11 @@ import {isEmpty} from "lodash";
 function SnippetTags() {
   const snippet = useAtomValue(snippetAtom);
 
-  return (
+  return (!isEmpty(snippet.tags) &&
     <div id={"tag-list-container"}>
-      {isEmpty(snippet.tags) ? null :
-        <ul id={"tag-list"}>
-          {snippet.tags.map((tag, i) => <li className="tag-item" key={i}>{tag}</li>)}
-        </ul>
-      }
+      <ul id={"tag-list"}>
+        {snippet.tags.map((tag, i) => <li className="tag-item" key={i}>{tag}</li>)}
+      </ul>
     </div>
   )
 }
