@@ -2,7 +2,8 @@ import {useAtom} from "jotai";
 
 import {directoryConstructor} from "../../../../Utility/Constructors/directory-constructor.utility";
 import {directoryAtom} from "../../../../Atoms/Directory/directory.atom";
-import {tagIcon} from "../../../../Assets/svg-icons.asset";
+import Icon from '@mdi/react';
+import {mdiTagOutline} from '@mdi/js';
 
 function DirectoryTagItem({tag}) {
   const [directory, setDirectory] = useAtom(directoryAtom);
@@ -18,7 +19,7 @@ function DirectoryTagItem({tag}) {
   return (
     <li className={"directory-item " + activeChecker(tag)}>
       <div className={"item-header"} onClick={() => onClickHandler(tag)}>
-        {tagIcon}
+        <Icon path={mdiTagOutline} size={1} />
         <p className={"item-name"}>{tag}</p>
       </div>
     </li>
