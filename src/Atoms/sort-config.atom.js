@@ -1,3 +1,3 @@
 import {atom} from "jotai";
 
-export const sortConfigAtom = atom({sortBy: "name", isAscending: false});
+export const sortConfigAtom = atom({sortBy: "lastViewed", isAscending: false});
