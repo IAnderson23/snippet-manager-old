@@ -1,8 +1,10 @@
+import Icon from '@mdi/react';
 import {useAtom} from "jotai";
+import { mdiFolderOutline } from '@mdi/js';
+import { mdiFolderOpenOutline } from '@mdi/js';
 
 import {directoryConstructor} from "../../../../Utility/Constructors/directory-constructor.utility";
 import {directoryAtom} from "../../../../Atoms/Directory/directory.atom";
-import {folderIcon} from "../../../../Assets/svg-icons.asset";
 import FolderActions from "./folder-actions.component";
 
 function FolderItem({folder}) {
@@ -19,7 +21,7 @@ function FolderItem({folder}) {
   return (
     <li key={folder.id} className={"directory-item " + activeChecker(folder.id)}>
       <div className={"item-header"} onClick={() => onClickHandler(folder.id)}>
-        {folderIcon}
+        <Icon path={activeChecker(folder.id) ? mdiFolderOpenOutline : mdiFolderOutline} size={1} />
         <p className={"item-name"}>{folder.name}</p>
       </div>
       <FolderActions menuTarget={folder}/>
