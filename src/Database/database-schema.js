@@ -12,7 +12,8 @@ export const snippetSchema = {
   name: "",
   tags: [],
   isFavorite: false,
-  lastViewed: new Date().getTime()
+  lastViewed: Date.now(),
+  created: Date.now(),
 }
 
 export const fragmentSchema = {
