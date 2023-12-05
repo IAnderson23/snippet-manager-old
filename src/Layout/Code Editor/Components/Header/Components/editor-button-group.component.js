@@ -4,7 +4,7 @@ import 'tippy.js/themes/light-border.css';
 import { mdiDotsHorizontal } from '@mdi/js';
 import {useAtomValue, useSetAtom} from "jotai";
 
-
+//TODO: Come Back
 import {menuConstructor} from "../../../../../Utility/Constructors/menu-constructor.utility";
 import {fragmentAtom} from "../../../../../Atoms/Fragment/fragment.atom";
 import {snippetAtom} from "../../../../../Atoms/Snippet/snippet.atom";
@@ -23,9 +23,29 @@ function EditorButtonGroup() {
     <button onClick={() => setMenu(menuConstructor.delete.fragment(fragment))}>Delete Fragment</button>
   </>
 
+  const dropdown = (
+    <div >
+      <p >Add Snippet</p>
+      <p >Edit Fragment</p>
+      <p >Delete Fragment</p>
+    </div>
+  )
+
+
+
+  // function dropdown(attrs) {
+  //   return (
+  //     <div className={"dropdown-menu"} {...attrs}>
+  //       <p className={"dropdown-item"}>Add Snippet</p>
+  //       <p className={"dropdown-item"}>Edit Fragment</p>
+  //       <p className={"dropdown-item"}>Delete Fragment</p>
+  //     </div>
+  //   )
+  // }
+
   return (
     <div id={"editor-buttons"}>
-      <Tippy content={content} interactive={true} trigger={"click"} theme={"light-border"}>
+      <Tippy content={dropdown} interactive={true} trigger={"click"} arrow={true} theme={"light-border"}>
         <Icon path={mdiDotsHorizontal} size={1.5} />  
       </Tippy>
     </div>
