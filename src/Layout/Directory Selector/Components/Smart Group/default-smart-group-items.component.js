@@ -1,7 +1,8 @@
-import {smartGroupIcon} from "../../../../Assets/svg-icons.asset";
 import {directoryConstructor} from "../../../../Utility/Constructors/directory-constructor.utility";
 import {useAtom} from "jotai";
 import {directoryAtom} from "../../../../Atoms/Directory/directory.atom";
+import {mdiArchiveOutline, mdiHelpCircleOutline, mdiHistory} from '@mdi/js';
+import Icon from '@mdi/react';
 
 function DefaultSmartGroup() {
   const [directory, setDirectory] = useAtom(directoryAtom);
@@ -18,19 +19,19 @@ function DefaultSmartGroup() {
     <>
       <li className={"directory-item " + activeChecker("all")}>
         <div className={"item-header"} onClick={() => onClickHandler("all")}>
-          {smartGroupIcon}
+          <Icon path={mdiArchiveOutline} size={1} />
           <p className={"item-name"}>All Snippets</p>
         </div>
       </li>
       <li className={"directory-item " + activeChecker("uncategorized")}>
         <div className={"item-header"} onClick={() => onClickHandler("uncategorized")}>
-          {smartGroupIcon}
+          <Icon path={mdiHelpCircleOutline} size={1} />
           <p className={"item-name"}>Uncategorized</p>
         </div>
       </li>
       <li className={"directory-item " + activeChecker("recent")}>
         <div className={"item-header"} onClick={() => onClickHandler("recent")}>
-          {smartGroupIcon}
+          <Icon path={mdiHistory} size={1} />
           <p className={"item-name"}>Recent</p>
         </div>
       </li>
