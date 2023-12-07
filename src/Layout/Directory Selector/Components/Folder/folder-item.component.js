@@ -5,7 +5,7 @@ import { mdiFolderOpenOutline } from '@mdi/js';
 
 import {directoryConstructor} from "../../../../Utility/Constructors/directory-constructor.utility";
 import {directoryAtom} from "../../../../Atoms/Directory/directory.atom";
-import FolderActions from "./folder-actions.component";
+import FolderActionsDropdown from "./folder-actions.component";
 
 function FolderItem({folder}) {
   const [directory, setDirectory] = useAtom(directoryAtom)
@@ -21,10 +21,10 @@ function FolderItem({folder}) {
   return (
     <li key={folder.id} className={"directory-item " + activeChecker(folder.id)}>
       <div className={"item-header"} onClick={() => onClickHandler(folder.id)}>
-        <Icon path={activeChecker(folder.id) ? mdiFolderOpenOutline : mdiFolderOutline} size={1} />
+        <Icon className={"item-icon"} path={activeChecker(folder.id) ? mdiFolderOpenOutline : mdiFolderOutline}/>
         <p className={"item-name"}>{folder.name}</p>
       </div>
-      <FolderActions menuTarget={folder}/>
+      <FolderActionsDropdown menuTarget={folder}/>
     </li>
   )
 }
