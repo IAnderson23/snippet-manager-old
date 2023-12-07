@@ -1,9 +1,10 @@
-import {mdiDotsHorizontal, mdiMenuUp} from "@mdi/js";
 import {Icon} from "@mdi/react";
+import {mdiDotsHorizontal} from "@mdi/js";
+
 import {Menu, MenuItem} from "../../../../Components/dropdown-menu.component";
 
 //TODO: Come Back
-function FolderActions({menuTarget}) {
+function FolderActionsDropdown() {
   const label = <Icon className={"actions-icon"} path={mdiDotsHorizontal} size={1.5} />
 
   return (
@@ -14,4 +15,4 @@ function FolderActions({menuTarget}) {
   )
 }
 
-export default FolderActions;
+export default FolderActionsDropdown;
