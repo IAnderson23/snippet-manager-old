@@ -19,19 +19,19 @@ function DefaultSmartGroup() {
     <>
       <li className={"directory-item " + activeChecker("all")}>
         <div className={"item-header"} onClick={() => onClickHandler("all")}>
-          <Icon path={mdiArchiveOutline} size={1} />
+          <Icon className={"item-icon"} path={mdiArchiveOutline}/>
           <p className={"item-name"}>All Snippets</p>
         </div>
       </li>
       <li className={"directory-item " + activeChecker("uncategorized")}>
         <div className={"item-header"} onClick={() => onClickHandler("uncategorized")}>
-          <Icon path={mdiHelpCircleOutline} size={1} />
+          <Icon className={"item-icon"} path={mdiHelpCircleOutline}/>
           <p className={"item-name"}>Uncategorized</p>
         </div>
       </li>
       <li className={"directory-item " + activeChecker("recent")}>
         <div className={"item-header"} onClick={() => onClickHandler("recent")}>
-          <Icon path={mdiHistory} size={1} />
+          <Icon className={"item-icon"} path={mdiHistory}/>
           <p className={"item-name"}>Recent</p>
         </div>
       </li>

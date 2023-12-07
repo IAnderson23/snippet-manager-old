@@ -19,7 +19,7 @@ function DirectoryTagItem({tag}) {
   return (
     <li className={"directory-item " + activeChecker(tag)}>
       <div className={"item-header"} onClick={() => onClickHandler(tag)}>
-        <Icon path={mdiTagOutline} size={1} />
+        <Icon className={"item-icon"} path={mdiTagOutline}/>
         <p className={"item-name"}>{tag}</p>
       </div>
     </li>
