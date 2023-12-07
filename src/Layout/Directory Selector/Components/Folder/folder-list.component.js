@@ -20,8 +20,8 @@ function FolderList() {
         <h5 className={"list-name"}>Folders</h5>
         <button onClick={onAddHandler}>{addIcon}</button>
       </div>
-      <ul>
-        {allFolders.map((folder, i) =><FolderItem folder={folder} key={i} />)}
+      <ul className={"directory-list"}>
+        {allFolders.map((folder, index) => <FolderItem folder={folder} key={index} />)}
       </ul>
     </div>
   )
