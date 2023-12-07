@@ -4,7 +4,23 @@
   grid-column-end: end
   border-top: 1px solid #dcdcdc
   border-bottom: 1px solid #dcdcdc
+
   #fragment-list
     height: 100%
     display: flex
     flex-direction: row
+
+    .fragment-item
+      flex: 1
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      height: 30px
+      color: gray
+      border-right: 1px solid #dcdcdc
+      background-color: #e6e6e6
+    
+      &.active
+        color: black
+        background-color: transparent
