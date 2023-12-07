@@ -25,7 +25,7 @@ function SnippetItem({snippet}) {
     return () => {
       clearTimeout(timeout);
     }
-  }, [lastViewed])
+  }, [lastViewed, snippet.lastViewed])
 
   function getFolderName(folderID) {
     const folder = allFolders.find(folder => folder.id === folderID);
