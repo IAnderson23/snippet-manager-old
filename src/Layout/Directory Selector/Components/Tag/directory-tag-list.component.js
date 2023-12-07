@@ -11,9 +11,9 @@ function DirectoryTagList() {
       <div className={"list-header"}>
         <h5 className={"list-name"}>Tags</h5>
       </div>
-      <ul>
-        {uniqueTags.map((tag, i) => {
-          return <DirectoryTagItem key={i} tag={tag} />
+      <ul className={"directory-list"}>
+        {uniqueTags.map((tag, index) => {
+          return <DirectoryTagItem key={index} tag={tag} />
         })}
       </ul>
     </div>
