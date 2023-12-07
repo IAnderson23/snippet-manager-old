@@ -14,7 +14,7 @@ function CreateSnippetMenu() {
 
   function submitHandler(e, snippet) {
     e.preventDefault();
-    createSnippet({...snippet, name: snippet.name}).then(res => console.log(res));
+    createSnippet(snippet);
     setMenu(menuConstructor.default);
   }
 

@@ -13,7 +13,7 @@ function CreateFragmentMenu() {
 
   function submitHandler(e, fragment) {
     e.preventDefault();
-    createFragment({...fragment, name: fragment.name});
+    createFragment(fragment);
     setMenu(menuConstructor.default);
   }
 

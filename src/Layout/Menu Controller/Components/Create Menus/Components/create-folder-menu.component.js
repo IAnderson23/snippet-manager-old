@@ -11,7 +11,7 @@ function CreateFolderMenu() {
 
   function submitHandler(e, folder) {
     e.preventDefault();
-    createFolder(folder).then(res => console.log(res));
+    createFolder(folder);
     setMenu(menuConstructor.default);
   }
 
