@@ -3,10 +3,12 @@ import {useEffect, useState} from "react";
 
 import {directoryAtom} from "../Atoms/Directory/directory.atom";
 import useAllSnippets from "./use-all-snippets.hook";
+import useRecentSnippets from "./useRecentSnippets.hook";
 
 function UseDirectorySnippets() {
   const {type, target} = useAtomValue(directoryAtom);
   const allSnippets = useAllSnippets()
+  const {recentSnippets} = useRecentSnippets()
   const [directorySnippets, setDirectorySnippets] = useState([]);
 
   const directoryFilter = {
@@ -18,7 +20,7 @@ function UseDirectorySnippets() {
   const smartGroupFilter = {
     "all": () => allSnippets,
     "uncategorized": () => allSnippets.filter(snippet => snippet.folderID === 0),
-    "recent": () => [],
+    "recent": () => recentSnippets,
   }
 
   useEffect(() => {
