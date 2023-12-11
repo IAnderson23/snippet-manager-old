@@ -20,7 +20,7 @@ function CreateSnippetMenu() {
 
   return (
     <div className={"menu"}>
-      <h3>Create Snippet</h3>
+      <p className={"menu-name"}>Create Snippet</p>
       <SnippetForm initialSnippet={snippet}
                    submitHandler={submitHandler}
                    menuType={"Create"}/>
