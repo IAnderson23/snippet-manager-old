@@ -28,8 +28,8 @@ function useSortedSnippets() {
     return numArr.concat(strArr);
   }
 
-  function lastViewedSort(snippets) {
-    return snippets.sort((a, b) => a.lastViewed - b.lastViewed);
+  function dateCreatedSort(snippets) {
+    return snippets.sort((a, b) => a.created - b.created);
   }
 
   function sort(snippets, sortBy) {
@@ -37,8 +37,8 @@ function useSortedSnippets() {
 
     if (sortBy === "name")
       result = nameSort(snippets)
-    if (sortBy === "lastViewed")
-      result = lastViewedSort(snippets);
+    if (sortBy === "created")
+      result = dateCreatedSort(snippets);
 
     return result;
   }
