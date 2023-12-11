@@ -1,6 +1,6 @@
 import {useAtomValue} from "jotai";
-import {fragmentAtom} from "../../Atoms/Fragment/fragment.atom";
-import {editorPositionAtom} from "../../Atoms/editor-position.atom";
+import {fragmentAtom} from "../../../Atoms/Fragment/fragment.atom";
+import {editorPositionAtom} from "../../../Atoms/editor-position.atom";
 import {isEmpty} from "lodash";
 
 function EditorFooter() {
