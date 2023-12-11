@@ -1,32 +1,43 @@
+@import "../Mixins/scrollbar"
+
 #snippet-list
   height: 100%
   padding: 0 10px
-  display: flex
-  flex-direction: column
+  display: grid
+  grid-template-rows: repeat(auto-fill, 96px)
+  overflow-y: auto
+  @include scrollbar
 
   .snippet-item
     display: flex
     flex-direction: column
     justify-content: center
-    height: 80px
     box-sizing: border-box
     border-bottom: 1px solid #dcdcdc
 
-    .item-header
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      height: 60px
-      box-sizing: border-box
-      border-radius: 5px
-      padding: 5px 10px
-      transition: all .2s ease-out
-
-    &:hover > .item-header
+    &:hover > .item-content
       background-color: #dcdcdc
 
     &.active
       color: white
 
-      .item-header
+      .item-content
         background-color: #4185CF
+
+    .item-content
+      display: grid
+      grid-template-rows: max-content max-content
+      grid-template-columns: max-content max-content
+      justify-content: space-between
+      align-content: space-between
+      height: 80px
+      box-sizing: border-box
+      border-radius: 8px
+      padding: 8px 12px
+      transition: all .2s ease-out
+
+      .snippet-name
+        grid-column: span 2
+
+
+

@@ -1,10 +1,14 @@
 .root-menu
+  visibility: hidden
+  opacity: 0
   background: none
   border-radius: 8px
   padding: 0
+  transition: opacity .2s, visibility .2s
 
-  &[data-open], &:hover
-    background: #d7dce5
+  &[data-open]
+    visibility: visible
+    opacity: 1
 
 .menu 
   background: #ffffffcc
@@ -28,7 +32,6 @@
   min-width: 110px
   margin: 0
   outline: 0
-
 
   &:focus 
     background: #4169e1
