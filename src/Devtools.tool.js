@@ -12,11 +12,11 @@ const devTools = {
       return {...folderSchema, name: name}
     })
 
-    const snippetNames = ["Quick Start", "Custom Hooks", "Quick Start", "Sorting Functions", "Math Operations", "No Fragments Test", "2", "1", "3"];
     //const snippetNames = ["a", "e", "b", "d", "c", "f", "2", "1", "3"];
     //const snippetNames = ["1", "2", "3", "4", "5", "6"];
-    const folderIDs = [1, 1, 2, 3, 0, 0, 4, 4, 4];
-    const tags = [["JavaScript", "Quick Start"], ["JavaScript"], ["JavaScript", "Quick Start"], ["C++"], ["C++"], ["Test"], [], [], []]
+    const snippetNames = ["Quick Start", "Custom Hooks", "Quick Start", "Sorting Functions", "Math Operations", "No Fragments Test", "2", "1", "3", "6", "Recent Test"];
+    const folderIDs = [1, 1, 2, 3, 0, 0, 4, 4, 4, 0, 0];
+    const tags = [["JavaScript", "Quick Start"], ["JavaScript"], ["JavaScript", "Quick Start"], ["C++"], ["C++"], ["Test"], ["Test"], ["Test"], ["Test"], ["Test"], ["Test"]]
 
     const snippets = snippetNames.map((name, i) => {
       return {...snippetSchema, folderID: folderIDs[i], name: name, tags: tags[i]}
