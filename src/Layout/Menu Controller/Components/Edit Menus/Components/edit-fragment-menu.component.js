@@ -10,7 +10,7 @@ function EditFragmentMenu() {
 
   function submitHandler(e, fragment) {
     e.preventDefault();
-    updateFragment(fragment.id, {...fragment, name: fragment.name});
+    updateFragment(fragment.id, fragment);
     setMenu(menuConstructor.default);
   }
 

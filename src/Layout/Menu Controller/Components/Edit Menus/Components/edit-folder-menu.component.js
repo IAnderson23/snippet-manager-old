@@ -10,7 +10,7 @@ function EditFolderMenu() {
 
   function submitHandler(e, folder) {
     e.preventDefault();
-    updateFolder(folder.id, {...folder, name: folder.name}).then(res => console.log(res));
+    updateFolder(folder.id, folder);
     setMenu(menuConstructor.default);
   }
 

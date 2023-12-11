@@ -13,7 +13,7 @@ function DeleteFolderMenu() {
   const {target: folder} = useAtomValue(menuAtom);
 
   function deleteHandler() {
-    deleteFolder(folder.id).then(res => console.log(res))
+    deleteFolder(folder.id)
     if (isEqual(directory, {type: "folder", target: folder.id}))
       setDirectory(directoryConstructor.default);
     setMenu(menuConstructor.default);

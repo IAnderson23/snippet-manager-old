@@ -12,7 +12,7 @@ function DeleteSnippetMenu() {
   const snippet = useAtomValue(snippetAtom);
 
   function deleteHandler() {
-    deleteSnippet(snippetID).then(res => console.log(res));
+    deleteSnippet(snippetID);
     setSnippetID(0);
     setMenu(menuConstructor.default);
   }

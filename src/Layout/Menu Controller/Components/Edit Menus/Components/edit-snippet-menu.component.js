@@ -11,7 +11,7 @@ function EditSnippetMenu() {
 
   function submitHandler(e, snippet) {
     e.preventDefault();
-    updateSnippet(snippet.id, {...snippet, name:snippet.name}).then(res => console.log(res));
+    updateSnippet(snippet.id, snippet);
     setMenu(menuConstructor.default);
   }
 
