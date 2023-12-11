@@ -4,7 +4,6 @@ import { mdiSortAscending, mdiSortDescending, mdiChevronDown} from '@mdi/js';
 
 import {sortConfigAtom} from "../../../Atoms/sort-config.atom";
 
-
 function SnippetSortControls() {
   const [{sortBy, isAscending}, setSortConfig] = useAtom(sortConfigAtom);
 
@@ -21,8 +20,8 @@ function SnippetSortControls() {
     <div id={"snippet-control"}>
       <button onClick={onClickHandler}><Icon path={isAscending ? mdiSortAscending : mdiSortDescending} size={1}/></button>
       <div id={"sort-select-container"}>
-        <select defaultValue={"lastViewed"} onChange={onChangeHandler}>
-          <option value={"lastViewed"}>Last Viewed</option>
+        <select defaultValue={"created"} onChange={onChangeHandler}>
+          <option value={"created"}>Created Date</option>
           <option value={"name"}>Name</option>
         </select>
         <Icon path={mdiChevronDown} size={1} />
