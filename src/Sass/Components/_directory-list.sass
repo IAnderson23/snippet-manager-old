@@ -3,24 +3,23 @@
 .directory-list-container
 
   .list-header
+    margin-bottom: 12px
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: center
-    margin-bottom: 10px
 
   .directory-list
     display: flex
     flex-direction: column
-    gap: 5px
-
+    gap: 4px
 
     .directory-item
+      height: 40px
+      padding: 0 8px
+      border-radius: 8px
       display: flex
       align-items: center
-      height: 40px
-      border-radius: 5px
-      margin-top: 2px
       transition: all .2s ease-out
 
       &:hover
@@ -37,10 +36,9 @@
       .item-header
         flex: 1
         display: flex
-        gap: 10px
+        gap: 8px
         align-items: center
         height: 100%
-        padding-left: 20px
         cursor: pointer
 
         .item-icon
@@ -49,3 +47,11 @@
 
         .item-name
           height: max-content
+
+      .root-menu
+        visibility: hidden
+        opacity: 0
+
+        &[data-open]
+          visibility: visible
+          opacity: 1
