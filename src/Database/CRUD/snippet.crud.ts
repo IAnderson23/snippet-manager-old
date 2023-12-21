@@ -1,13 +1,14 @@
 import {db} from "../datebase-init";
+import {Snippet} from "../database-schema";
 
-export function createSnippet(snippetData) {
-  db.snippets.add(snippetData).then(success).catch(error);
+export function createSnippet(snippet: Snippet) {
+  db.snippets.add(snippet).then(success).catch(error);
 
-  function success(id) {
+  function success(id): void {
     console.log(`Snippet ${id} Was Created`);
   }
 
-  function error(e) {
+  function error(e): void {
     console.log(`Error Creating Snippet: ${e}`);
   }
 }

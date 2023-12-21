@@ -1,6 +1,7 @@
 import {db} from "../datebase-init";
+import {Fragment} from "../database-schema";
 
-export function createFragment(fragment) {
+export function createFragment(fragment: Fragment) {
   db.fragments.add(fragment).then(success).catch(error)
 
   function success(id) {
