@@ -8,7 +8,7 @@ import {
   useFloatingNodeId,
   useFloatingParentNodeId,
   useFloatingTree, useHover, useInteractions,
-  useListItem, useListNavigation, useMergeRefs, useRole, useTypeahead
+  useListItem, useListNavigation, useMergeRefs, useRole, useTransitionStyles, useTypeahead
 } from "@floating-ui/react";
 
 const MenuContext = createContext({
@@ -48,6 +48,10 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
     whileElementsMounted: autoUpdate
   });
 
+  const {isMounted, styles: transitionStyles} = useTransitionStyles(context, {
+    duration: 200
+  });
+
   const hover = useHover(context, {
     enabled: isNested,
     delay: { open: 75 },
@@ -59,7 +63,7 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
     ignoreMouse: isNested
   });
   const role = useRole(context, { role: "menu" });
-  const dismiss = useDismiss(context, { bubbles: true });
+  const dismiss = useDismiss(context, { bubbles: true});
   const listNavigation = useListNavigation(context, {
     listRef: elementsRef,
     activeIndex,
@@ -95,17 +99,17 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
     }
 
     tree.events.on("click", handleTreeClick);
-    tree.events.on("menuopen", onSubMenuOpen);
+    tree.events.on("menu-open", onSubMenuOpen);
 
     return () => {
       tree.events.off("click", handleTreeClick);
-      tree.events.off("menuopen", onSubMenuOpen);
+      tree.events.off("menu-open", onSubMenuOpen);
     };
   }, [tree, nodeId, parentId]);
 
   useEffect(() => {
     if (isOpen && tree) {
-      tree.events.emit("menuopen", { parentId, nodeId });
+      tree.events.emit("menu-open", { parentId, nodeId });
     }
   }, [tree, isOpen, nodeId, parentId]);
 
@@ -114,7 +118,7 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
       <button
         ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
         tabIndex={!isNested ? undefined : parent.activeIndex === item.index ? 0 : -1}
-        role={isNested ? "menuitem" : undefined}
+        role={isNested ? "menu-item" : undefined}
         data-open={isOpen ? "" : undefined}
         data-nested={isNested ? "" : undefined}
         data-focus-inside={hasFocusInside ? "" : undefined}
@@ -122,7 +126,7 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
         {...getReferenceProps(
           parent.getItemProps({
             ...props,
-            onFocus(event) {
+            onFocus:(event) => {
               props.onFocus?.(event);
               setHasFocusInside(false);
               parent.setHasFocusInside(true);
@@ -139,21 +143,13 @@ export const MenuComponent = forwardRef(({ children, label, ...props }, forwarde
       </button>
       <MenuContext.Provider value={{getItemProps, activeIndex, setActiveIndex, setHasFocusInside, isOpen}}>
         <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
-          {isOpen && (
+          {isMounted && (
             <FloatingPortal>
-              <FloatingFocusManager
-                context={context}
-                modal={false}
-                initialFocus={isNested ? -1 : 0}
-                returnFocus={!isNested}
-              >
-                <div
-                  ref={refs.setFloating}
-                  className="menu"
-                  style={floatingStyles}
-                  {...getFloatingProps()}
-                >
-                  {children}
+              <FloatingFocusManager context={context} modal={false} initialFocus={isNested ? -1 : 0} returnFocus={!isNested}>
+                <div className={"menu-container"} ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+                  <div className="menu" alignment={props.alignment} style={{...transitionStyles}} >
+                    {children}
+                  </div>
                 </div>
               </FloatingFocusManager>
             </FloatingPortal>
@@ -180,11 +176,11 @@ export const MenuItem = forwardRef(({ label, disabled, ...props }, forwardedRef)
       tabIndex={isActive ? 0 : -1}
       disabled={disabled}
       {...menu.getItemProps({
-        onClick(event) {
+        onClick: (event) => {
           props.onClick?.(event);
           tree?.events.emit("click");
         },
-        onFocus(event) {
+        onFocus: (event) => {
           props.onFocus?.(event);
           menu.setHasFocusInside(true);
         }
