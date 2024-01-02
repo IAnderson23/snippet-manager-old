@@ -1,10 +1,11 @@
 import Dexie, {Table} from "dexie";
-import {Folder, Snippet, Fragment} from "./database-schema";
+import {Folder, Fragment, Snippet} from "./database-types";
+
 
 class MyDexie extends Dexie {
-    folders!: Table<Folder>
-    snippets!: Table<Snippet>
-    fragments!: Table<Fragment>
+    folders!: Table<Folder, number>
+    snippets!: Table<Snippet, number>
+    fragments!: Table<Fragment, number>
 
     constructor() {
         super("myDatabase");

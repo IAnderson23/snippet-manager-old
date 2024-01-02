@@ -1,39 +1,12 @@
-
-export interface Folder {
-  id?: number
-  name: string
-  order: number
-  isFavorite: boolean
-}
-
-export interface Snippet {
-  id?: number
-  folderID: number
-  name: string
-  tags: string[]
-  isFavorite: boolean
-  lastViewed: number
-  created: number
-}
-
-export interface Fragment {
-  id?: number
-  snippetID: number
-  name: string
-  code: string
-  language: string
-  order: number
-}
+import {Folder, Fragment, Snippet} from "./database-types";
 
 export const folderSchema: Folder = {
-  id: undefined,
   name: "",
   order: 0,
   isFavorite: false,
 }
 
 export const snippetSchema: Snippet = {
-  id: undefined,
   folderID: 0,
   name: "",
   tags: [],
@@ -43,7 +16,6 @@ export const snippetSchema: Snippet = {
 }
 
 export const fragmentSchema: Fragment = {
-  id: undefined,
   snippetID: 0,
   name: "Fragment",
   code: 'console.log("Hello World");',

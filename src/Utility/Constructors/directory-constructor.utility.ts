@@ -1,15 +1,10 @@
-import {Folder} from "../../Database/database-schema";
-
-export interface Directory {
-  type: string
-  target: Folder | string
-}
+import {Directory} from "../../Atoms/Directory/directory.atom";
 
 export const directoryConstructor = {
   default: (): Directory => {
     return {type: "smartGroup", target: "all"}
   },
-  folder: (target: Folder): Directory => {
+  folder: (target: number): Directory => {
     return {type: "folder", target: target}
   },
   tag: (target: string): Directory => {

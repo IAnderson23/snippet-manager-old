@@ -1,6 +1,16 @@
-import {Folder, folderSchema, Fragment, fragmentSchema, Snippet, snippetSchema} from "./Database/database-schema";
+import {folderSchema, fragmentSchema, snippetSchema} from "./Database/database-schema";
 import {db} from "./Database/datebase-init";
 import {createFolder} from "./Database/CRUD/folder.crud";
+import {Folder, Fragment, Snippet} from "./Database/database-types";
+
+declare global {
+  interface Window {
+    devTools: {
+      init(): void;
+      addErrorTest(): void;
+    };
+  }
+}
 
 const devTools = {
   init(): void {

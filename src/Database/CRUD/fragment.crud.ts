@@ -1,19 +1,21 @@
 import {db} from "../datebase-init";
-import {Fragment} from "../database-schema";
+import {Fragment} from "../database-types";
+import {IndexableType} from "dexie";
 
-export function createFragment(fragment: Fragment) {
+
+export function createFragment(fragment: Fragment):void {
   db.fragments.add(fragment).then(success).catch(error)
 
-  function success(id) {
+  function success(id: IndexableType): void {
     console.log(`Fragment ${id} Was Created`)
   }
 
-  function error(e) {
+  function error(e: any): void {
     console.log(`Error Creating Fragment: ${e}`)
   }
 }
 
-export function updateFragment(fragmentID, updatedData) {
+export function updateFragment(fragmentID: number, updatedData: Fragment): void {
   db.fragments.update(fragmentID, updatedData).then(updated => {
     if (updated)
       console.log(`Fragment ${fragmentID} Was Updated`)
@@ -22,14 +24,10 @@ export function updateFragment(fragmentID, updatedData) {
   })
 }
 
-export function deleteFragment(fragmentID) {
-  db.fragments.delete(fragmentID).then(success).catch(error);
+export function deleteFragment(fragmentID: number): void {
+  db.fragments.delete(fragmentID).then(success)
 
-  function success(id) {
-    console.log(`Fragment ${id} Was Deleted`)
-  }
-
-  function error() {
-    console.log(`Error: Invalid ID Given`)
+  function success(): void {
+    console.log(`Fragment ${fragmentID} Was Deleted`)
   }
 }
